@@ -1,36 +1,246 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SprintBoard - Task & Team Management Dashboard
 
-## Getting Started
+SprintBoard is a responsive Task and Team Management Dashboard built using Next.js, TypeScript, Tailwind CSS, and Context API.
 
-First, run the development server:
+This project was created for a Frontend Developer Internship Assignment. It includes authentication UI, role-based access, task management, team member management, pagination, dark mode, responsive layout, and localStorage persistence.
+
+## Tech Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Context API
+- React Hooks
+- localStorage for mock persistence
+
+## Features
+
+### Authentication
+
+- Login page
+- Register page
+- Forgot password page
+- Form validation
+- Strong password rules
+- Passwords stored as hashes in localStorage for registered users
+- Registered users are redirected to login after registration
+
+### Password Requirements
+
+Password must include:
+
+- At least 10 characters
+- One uppercase letter
+- One lowercase letter
+- One number
+- One special character
+
+### Role-Based Access
+
+#### Admin
+
+Admin can:
+
+- View dashboard statistics
+- View all tasks
+- Create tasks
+- Edit tasks
+- Delete tasks
+- View team members
+- Add team members
+- Edit team members
+- Delete team members
+
+#### User / Team Member
+
+User can:
+
+- View dashboard
+- View only assigned tasks
+- Update assigned task status
+- View team members
+- Add team members
+- View member role and email
+- View profile
+- Delete own registered account
+
+Demo accounts cannot be deleted.
+
+## Test Accounts
+
+### Admin Account
+
+Email:
+
+```txt
+admin@sprintboard.com
+```
+
+Password:
+
+```txt
+Admin@12345
+```
+
+### User Account
+
+Email:
+
+```txt
+user@sprintboard.com
+```
+
+Password:
+
+```txt
+User@12345
+```
+
+## Main Pages
+
+- `/login` - Login page
+- `/register` - Register page
+- `/forgot-password` - Forgot password page
+- `/dashboard` - Dashboard statistics and charts
+- `/tasks` - Task management
+- `/members` - Team member management
+- `/profile` - User profile and account actions
+
+## Task Management
+
+Admin can:
+
+- Add new task
+- Edit existing task
+- Delete task
+- Assign task to team member
+- Search tasks
+- Filter by status
+- Filter by priority
+- Use pagination
+
+User can:
+
+- View assigned tasks
+- Update task status
+
+## Team Member Management
+
+All users can:
+
+- View team members
+- Add new members
+- See member email and role
+
+Only admin can:
+
+- Edit members
+- Delete members
+
+## Dashboard
+
+Dashboard includes:
+
+- Total tasks / My tasks
+- Completed tasks
+- Pending tasks
+- Team size
+- Task progress chart
+- Priority split chart
+- Recent work section
+
+Dashboard cards are clickable:
+
+- Tasks card opens `/tasks`
+- Team size card opens `/members`
+
+## Important Flow
+
+Example role-based flow:
+
+1. Login as admin.
+2. Add a new team member.
+3. Create a task and assign it to that member.
+4. Logout.
+5. Register using the same full name as the member.
+6. Login with the registered user account.
+7. The assigned task appears on the user's dashboard and tasks page.
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <your-repository-link>
+```
+
+Go to the project folder:
+
+```bash
+cd sprintboard
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
+Create a production build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run lint:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```txt
+src/
+  app/
+    dashboard/
+    forgot-password/
+    login/
+    members/
+    profile/
+    register/
+    tasks/
+  components/
+    dashboard/
+    layout/
+    members/
+    tasks/
+    ui/
+  context/
+  data/
+  hooks/
+  providers/
+  services/
+  types/
+  utils/
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+This is a frontend assignment project, so authentication and data persistence are handled using mock data and localStorage.
+
+In a real production application, authentication should be handled using a backend, secure password hashing with salt, database storage, protected APIs, sessions or JWT, and secure cookies.
