@@ -82,20 +82,6 @@ Password:
 Admin@12345
 ```
 
-### User Account
-
-Email:
-
-```txt
-user@sprintboard.com
-```
-
-Password:
-
-```txt
-User@12345
-```
-
 ## Main Pages
 
 - `/login` - Login page
