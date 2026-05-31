@@ -1,26 +1,171 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html.dark {
+  background-color: #0f172a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #0f172a;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panel-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.auth-shell {
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, rgb(59 130 246 / 0.18), transparent 34rem),
+    linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.dark .auth-shell {
+  background:
+    radial-gradient(circle at top left, rgb(16 185 129 / 0.15), transparent 34rem),
+    linear-gradient(135deg, #020617 0%, #0f172a 100%);
+}
+
+.auth-panel {
+  animation: panel-reveal 420ms ease-out both;
+  background-color: white;
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 80px rgb(15 23 42 / 0.18);
+  display: grid;
+  max-width: 72rem;
+  min-height: min(46rem, calc(100vh - 2rem));
+  overflow: hidden;
+  width: 100%;
+}
+
+.dark .auth-panel {
+  background-color: #0f172a;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.4);
+}
+
+@media (min-width: 1024px) {
+  .auth-panel {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}
+
+.auth-card {
+  animation: fade-up 520ms ease-out 120ms both;
+  max-width: 32rem;
+  width: 100%;
+}
+
+.form-field {
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  color: #0f172a;
+  outline: none;
+  padding: 0.875rem 1rem;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+  width: 100%;
+}
+
+.form-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 0.12);
+  transform: translateY(-1px);
+}
+
+.dark .form-field {
+  background-color: #020617;
+  border-color: #334155;
+  color: white;
+}
+
+.primary-action {
+  background-color: #020617;
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 700;
+  padding: 0.875rem 1rem;
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+  width: 100%;
+}
+
+.primary-action:hover:not(:disabled) {
+  background-color: #1e293b;
+  box-shadow: 0 12px 24px rgb(15 23 42 / 0.18);
+  transform: translateY(-1px);
+}
+
+.primary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.dark .primary-action {
+  background-color: white;
+  color: #020617;
+}
+
+.dark .primary-action:hover:not(:disabled) {
+  background-color: #e2e8f0;
+}
+
+.auth-link {
+  color: #2563eb;
+  font-weight: 700;
+  transition: color 160ms ease;
+}
+
+.auth-link:hover {
+  color: #1d4ed8;
+}
+
+.dark .auth-link {
+  color: #93c5fd;
+}
+
+.dark .auth-link:hover {
+  color: #bfdbfe;
 }
