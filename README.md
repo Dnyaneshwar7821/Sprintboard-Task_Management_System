@@ -82,20 +82,6 @@ Password:
 Admin@12345
 ```
 
-### User Account
-
-Email:
-
-```txt
-user@sprintboard.com
-```
-
-Password:
-
-```txt
-User@12345
-```
-
 ## Main Pages
 
 - `/login` - Login page
@@ -171,7 +157,7 @@ Example role-based flow:
 Clone the repository:
 
 ```bash
-git clone <your-repository-link>
+git clone git clone https://github.com/Dnyaneshwar7821/Sprintboard-Task_Management_System.git
 ```
 
 Go to the project folder:
