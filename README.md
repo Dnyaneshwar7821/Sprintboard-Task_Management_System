@@ -157,7 +157,11 @@ Example role-based flow:
 Clone the repository:
 
 ```bash
+<<<<<<< HEAD
 git clone git clone https://github.com/Dnyaneshwar7821/Sprintboard-Task_Management_System.git
+=======
+git clone https://github.com/Dnyaneshwar7821/Sprintboard-Task_Management_System.git
+>>>>>>> fe3edd34af3a12d7370b38a99e1628a18b595fb6
 ```
 
 Go to the project folder:
